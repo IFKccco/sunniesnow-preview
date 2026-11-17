@@ -1,5 +1,7 @@
 # Sunniesnow 谱面预览器（PC）
 
+[English](README.en.md) | 简体中文
+
 写 Sunniesnow 谱面时，一边在外置编辑器里改 JSON，一边在旁边窗口里实时看效果。
 程序长驻监听「自己所在的那个文件夹」，你一保存，它就把最新谱面丢进 Sunniesnow 内核跑起来，不用手动导入、不用切歌。
 
