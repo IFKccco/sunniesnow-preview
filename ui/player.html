@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Sunniesnow 谱面预览</title>
+<link rel="stylesheet" href="/player.css">
+</head>
+<body>
+<div id="bar">
+	<div class="brand">谱面预览</div>
+	<div class="path" id="root-path">…</div>
+	<div class="spacer"></div>
+	<label class="switch"><input type="checkbox" id="follow" checked><span>保存后自动重跑</span></label>
+	<button id="rerun">重跑</button>
+	<button id="reload-engine">重启内核</button>
+	<button id="keys">快捷键</button>
+</div>
+<div id="keys-panel" class="hidden">
+	<div class="kp-row"><b>空格</b><span>暂停 / 继续</span></div>
+	<div class="kp-row"><b>← →</b><span>后退 / 前进 5 秒（按住 Shift 为 1 秒）</span></div>
+	<div class="kp-row"><b>↑ ↓</b><span>切到上 / 下一份谱面</span></div>
+	<div class="kp-row"><b>R</b><span>重跑当前谱面（保留播放位置）</span></div>
+	<div class="kp-row"><b>Home</b><span>回到开头</span></div>
+	<div class="kp-row"><b>F</b><span>窗口全屏 / 退出全屏</span></div>
+	<div class="kp-row"><b>Esc</b><span>退出全屏</span></div>
+</div>
+
+<div id="main">
+	<aside id="side">
+		<div class="side-head">
+			<span>谱面文件</span>
+			<span class="count" id="file-count">0</span>
+		</div>
+		<div id="files" class="files"></div>
+		<div id="status" class="status">等待文件…</div>
+	</aside>
+	<section id="stage">
+		<iframe id="game" src="/game/index.html?embed=1&skipSplash=1&diag=1" allow="autoplay"></iframe>
+		<div id="overlay" class="overlay"><div class="hint" id="overlay-text">内核加载中…</div></div>
+	</section>
+</div>
+
+<div id="timeline">
+	<span class="chip" id="einfo">—</span>
+	<input type="range" id="seek" min="0" max="100" step="0.01" value="0">
+	<span class="time" id="tnow">0:00.0</span>
+	<span class="time dim">/</span>
+	<span class="time dim" id="tend">0:00.0</span>
+</div>
+
+<script src="/game/libs/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="/player.js"></script>
+</body>
+</html>

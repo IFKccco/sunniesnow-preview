@@ -1,0 +1,46 @@
+{
+  "name": "sunniesnow-preview",
+  "version": "1.4.0",
+  "description": "Sunniesnow 谱面实时预览器（PC）：外部编辑器一保存，窗口里立刻跑最新谱面，方便写谱时边看边调",
+  "main": "main.js",
+  "author": "IFKccco",
+  "license": "AGPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IFKccco/sunniesnow-preview"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dev": "node dev-server.js",
+    "prepare-kernel": "node scripts/prepare-kernel.js",
+    "build": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.sunniesnow.preview",
+    "productName": "SunniesnowPreview",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "server.js",
+      "ui/**",
+      "www/**",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "icon": "ui/icon.ico",
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "SunniesnowPreview-${version}.exe"
+    }
+  }
+}
